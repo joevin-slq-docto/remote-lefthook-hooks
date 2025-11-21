@@ -2,7 +2,7 @@
 
 Remote `lefthook` hooks repository detailing this issue: https://github.com/evilmartians/lefthook/issues/121#issuecomment-3557282987.
 
-See https://github.com/joevin-slq-docto/remote-hk-hooks/tree/using-script.
+See https://github.com/joevin-slq-docto/remote-lefthook-hooks/tree/using-script.
 
 ## Project Structure
 
