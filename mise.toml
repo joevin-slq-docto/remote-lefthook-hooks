@@ -1,0 +1,4 @@
+[tools]
+lefthook = "2.0.3"
+ggshield = "1.44.1"
+prettier = "3.6.2"
