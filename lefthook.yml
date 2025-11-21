@@ -2,7 +2,7 @@ pre-commit:
   jobs:
   - name: setup mise
     run: |
-      cd .git/info/lefthook-remotes/main
+      cd .git/info/lefthook-remotes/using-run
       mise trust -q && mise install -q
   - name: prettier and ggshield
     group:
@@ -11,11 +11,11 @@ pre-commit:
       - name: prettier
         glob: "*.{js,ts,jsx,tsx}"
         run: |
-          export REMOTE_HOOKS_DIR=".git/info/lefthook-remotes/main"
+          export REMOTE_HOOKS_DIR=".git/info/lefthook-remotes/using-run"
           eval "$(mise -C $REMOTE_HOOKS_DIR env)"
           prettier --check {staged_files}
       - name: ggshield
         run: |
-          export REMOTE_HOOKS_DIR=".git/info/lefthook-remotes/main"
+          export REMOTE_HOOKS_DIR=".git/info/lefthook-remotes/using-run"
           eval "$(mise -C $REMOTE_HOOKS_DIR env)"
           bash $REMOTE_HOOKS_DIR/ggshield.sh

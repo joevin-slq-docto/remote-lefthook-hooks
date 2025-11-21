@@ -24,10 +24,10 @@ remotes:
 
 ## Limitation
 
-Using `run` require to guess the ref like:
+Using `run` require to guess the ref (`using-run` here):
 ```yaml
 run: |
-    export REMOTE_HOOKS_DIR=".git/info/lefthook-remotes/main"
+    export REMOTE_HOOKS_DIR=".git/info/lefthook-remotes/using-run"
     eval "$(mise -C $REMOTE_HOOKS_DIR env)"
     prettier --check {staged_files}
 ```
