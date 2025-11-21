@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+eval "$(mise -C $(dirname "${BASH_SOURCE}")/../.. env)"
+
 if command -v ggshield >/dev/null; then
 	set +e
 	ggshield secret scan pre-commit >/dev/null 2>&1
