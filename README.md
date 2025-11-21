@@ -19,11 +19,23 @@ See https://github.com/joevin-slq-docto/remote-lefthook-hooks/tree/using-run.
 
 ## How to use it ?
 
+```bash
+mkdir testLefthookScript && cd testLefthookScript && git init
+```
+
 Create a `lefthook.yml` file:
 ```yaml
 remotes:
   - git_url: https://github.com/joevin-slq-docto/remote-lefthook-hooks
     ref: using-script
+```
+
+```bash
+mise use lefthook@2.0.3
+echo "import 'test';" > test.ts
+git add test.ts
+lefthook install
+lefthook run pre-commit
 ```
 
 ## Limitation
