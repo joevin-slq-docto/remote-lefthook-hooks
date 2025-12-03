@@ -8,6 +8,7 @@ pre-commit:
       jobs:
       - name: prettier
         glob: "*.{js,ts,jsx,tsx}"
+        args: "{staged_files}"
         script: prettier.sh
       - name: ggshield
         script: ggshield.sh

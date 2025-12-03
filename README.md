@@ -1,8 +1,6 @@
 # Remote Lefthook Hooks
 
-Remote `lefthook` hooks repository detailing this issue: https://github.com/evilmartians/lefthook/issues/121#issuecomment-3557282987.
-
-See https://github.com/joevin-slq-docto/remote-lefthook-hooks/tree/using-run.
+This branch `using-args` proves the following issue has been resolved: https://github.com/evilmartians/lefthook/issues/121#issuecomment-3557282987.
 
 ## Project Structure
 
@@ -27,21 +25,30 @@ Create a `lefthook.yml` file:
 ```yaml
 remotes:
   - git_url: https://github.com/joevin-slq-docto/remote-lefthook-hooks
-    ref: using-script
+    ref: using-args
 ```
 
 ```bash
-mise use lefthook@2.0.3
-echo "import 'test';" > test.ts
-git add test.ts
+mise use lefthook@2.0.6
+echo "import 'test';" > test.ts > test1.ts > "test 2.ts"
+git add test.ts "test 2.ts"
 lefthook install
-lefthook run pre-commit
+lefthook run pre-commit --verbose
 ```
 
-## Limitation
+## Conclusion
 
-Using `script` prevents the use of `{staged_files}`:
+Since `v2.0.5` with https://github.com/evilmartians/lefthook/pull/1206, we now can use `args` to pass `{staged_files}`:
 ```yaml
+args: "{staged_files}"
 script: prettier.sh
 ```
-That slow down the hook as prettier need to run on all files (see `.lefthook/pre-commit/prettier.sh`).
+
+Using `prettier --check "$@"` in `ggshield.sh`, prettier is now running only on staged files !
+```bash
+[warn] test 2.ts
+[warn] test.ts
+[warn] Code style issues found in 3 files. Run Prettier with --write to fix.
+```
+
+Well done @mrexox !
